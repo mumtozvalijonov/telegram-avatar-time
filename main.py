@@ -20,10 +20,11 @@ parser = argparse.ArgumentParser()
 parser.add_argument("--api_id", required=False, help="user api ID", type=str, default=api_id)
 parser.add_argument("--api_hash", required=False, help="user api Hash", type=str, default=api_hash)
 parser.add_argument("--tz", required=False,  help="user api Hash", type=valid_tz, default=valid_tz('Asia/Tashkent'))
+parser.add_argument("--session", required=True,  help="session name", type=str)
 
 args = parser.parse_args()
 
-client = TelegramClient("carpediem", args.api_id, args.api_hash)
+client = TelegramClient(args.session, args.api_id, args.api_hash)
 client.start()
 
 
