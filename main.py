@@ -35,7 +35,7 @@ async def main():
         if time_has_changed(prev_update_time):
             prev_update_time = datetime.now(args.tz).replace(tzinfo=None)
             await client(DeletePhotosRequest(await client.get_profile_photos('me')))
-            file = await client.upload_file(f"time_images/{prev_update_time.strftime('%H%M')}.jpg")
+            file = await client.upload_file(f"time_images/{prev_update_time.strftime('%H%M')}.png")
             await client(UploadProfilePhotoRequest(file))
             time.sleep(1)
             
